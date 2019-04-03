@@ -2,11 +2,18 @@
     width:90%;
     height:20%;
     position:absolute;
-    z-index: 5;    
+    z-index: 5;
+    left:2%;
 }
 
+.spacing{
+    padding: 8%;        
+    position: static
+}
 .image{
 	position: absolute;
 	background-color: green;
+	height:10%;
+	width:10%;
 
 }

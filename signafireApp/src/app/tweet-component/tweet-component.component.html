@@ -1,4 +1,6 @@
-<div class = 'well border border-dark' >
-  tweet-component works!
-  <div class = 'image'></div>
-</div>
+<div class= 'spacing' *ngFor= 'let tweets of tweetList'>
+	<div class = 'well border border-dark' >
+		{{tweets}}
+		<div class = 'image'></div>
+	</div>
+</div>	
