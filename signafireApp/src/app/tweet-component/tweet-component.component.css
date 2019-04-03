@@ -10,10 +10,19 @@
     padding: 8%;        
     position: static
 }
+
 .image{
 	position: absolute;
 	background-color: green;
-	height:10%;
+	height:65%;
 	width:10%;
+    left:2%;
 
+}
+
+.name {
+   font-size:.8em;
+   top: 85%;
+   left:2%;
+   position: absolute; 
 }
