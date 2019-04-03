@@ -1,3 +1,12 @@
 .well {
-    
-    }
+    width:90%;
+    height:20%;
+    position:absolute;
+    z-index: 5;    
+}
+
+.image{
+	position: absolute;
+	background-color: green;
+
+}

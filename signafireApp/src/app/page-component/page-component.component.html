@@ -1,3 +1,5 @@
-<div class = 'container' style = 'background-color:pink'>
-    <app-tweet-component></app-tweet-component>
+<div>
+	<li *ngFor = "let tweets of tweetList">		
+    	<app-tweet-component></app-tweet-component>
+	</li>
 </div>

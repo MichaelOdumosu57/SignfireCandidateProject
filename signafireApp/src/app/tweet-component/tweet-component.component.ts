@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tweet-component.component.css']
 })
 export class TweetComponentComponent implements OnInit {
-
+  
+  
   constructor() { }
 
   ngOnInit() {
