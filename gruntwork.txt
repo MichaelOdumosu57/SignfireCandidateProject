@@ -1,0 +1,19 @@
+add to journal.log later
+https://www.competa.com/blog/how-to-run-npm-without-sudo/
+
+install path /usr/node_modules
+
+npm config set prefix ~/npm
+
+/usr/lib
+├── @angular/cli@7.3.7
+├── npm@6.9.0
+└── pnpm@3.0.1
+
+/home/uoul/npm/lib
+└── (empty)
+
+npm install -g npm
+npm install -g @angular/cli
+
+success
