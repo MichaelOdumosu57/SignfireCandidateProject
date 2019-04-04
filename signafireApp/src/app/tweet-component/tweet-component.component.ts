@@ -8,7 +8,7 @@ import { Tweet } from '../tweets';
 })
 export class TweetComponentComponent implements OnInit {
   
-  tweetList: Tweet = [1,2,3];  
+  tweetList: number[] = [1,2,3];  
   items: Tweet={
 		message:'',
 		name:'',

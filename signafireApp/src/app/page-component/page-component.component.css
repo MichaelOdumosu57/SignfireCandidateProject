@@ -1,7 +1,8 @@
-* { 
+div { 
 	position: absolute;
 	height:98%;
-	width:98%;
-	background-color:pink;
+	width:98%;	
+	padding-top: 10%;
+	background-color: white 
 
  }
