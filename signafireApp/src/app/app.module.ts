@@ -7,6 +7,8 @@ import { TweetComponentComponent } from './tweet-component/tweet-component.compo
 import { StarTabComponent } from './star-tab/star-tab.component';
 import { SigHeaderComponent } from './sig-header/sig-header.component';
 
+import { HttpClientModule }    from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { SigHeaderComponent } from './sig-header/sig-header.component';
     SigHeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

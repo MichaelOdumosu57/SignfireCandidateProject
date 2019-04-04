@@ -1,4 +1,4 @@
-<div class = 'header'>
-	{{image}}
-	<img src = `{{image}}` (click) = 'getImage()' />
+<div class = 'header'>	
+	<!-- <img src = `{{image}}` (click) = 'getImage()' /> -->
+	<img [src]='DomSanitizer.bypassSecurityTrustUrl(image)'/>
 </div>

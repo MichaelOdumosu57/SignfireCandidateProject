@@ -10,9 +10,17 @@ const cors = require('cors')
 app.use(  cors()   )
 app.use(   compression()  )
 
+app.get('/backend/angularLogoRequest', function (   req, res, next   ) {
+	res.json('http://localhost/backend/signafireLogo')
+},function(   err,req, res, next   ){
+	console.log('a problem occured could not send logo string to the server')
+});
+
+
 app.get('/backend/signafireLogo', function (   req, res, next   ) {
 	res.sendFile(   __dirname + '/Misc/images/assets_logo-sf-small.png'   )
 });
+
 
 
 

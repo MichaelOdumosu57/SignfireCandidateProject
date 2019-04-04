@@ -49,5 +49,5 @@ for app
 #SigHeader Component
 	* responsible for showing the logo as well as that message viewer
 
-#SigHeader Service
+#sigheader Service
 	responsible for getting the logo from the backend	
