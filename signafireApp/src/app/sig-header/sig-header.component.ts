@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input  } from '@angular/core';
+import { SigheaderService } from '../sigheader.service';
 
 @Component({
   selector: 'app-sig-header',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sig-header.component.css']
 })
 export class SigHeaderComponent implements OnInit {
+	
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+	constructor(private sigheaderS: SigheaderService) { }
+	image:number = 2	
+	getImage(): void {
+		console.log(this.sigheaderS)
+		this.image = this.sigheaderS.getLogo()
+	}
+	ngOnInit() {
+		this.getImage()
+	}
 
 }

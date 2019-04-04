@@ -22,8 +22,7 @@ export class TweetComponentComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  	console.log(this)
+  ngOnInit() {  	
   	this.add(this.items)
   }
 

@@ -11,7 +11,7 @@
     
 ###  Goal 2
 	display the star tab
-	understand if its a logo or a div you are given and make appropriate messages
+	understand if its a logo or a div you are given and make appropriate messages for the SigHeader
 
 
 ##Achieved 
@@ -20,9 +20,10 @@
 	
 	matched the stylying of the tweets as close as I could
 	getting plenty of modularity
-
+ 
 ###Achieved 2
 	displaying start tab
+	its a logo for the sigHeader
 
 
 
@@ -47,3 +48,6 @@ for app
 
 #SigHeader Component
 	* responsible for showing the logo as well as that message viewer
+
+#SigHeader Service
+	responsible for getting the logo from the backend	
