@@ -4,11 +4,12 @@
     position:absolute;
     z-index: 5;
     left:2%;
+    border: 1px solid black;
 }
 
 .spacing{
-    padding: 8%;        
-    position: static
+    padding: 8%;            
+    position: static;
 }
 
 .image{
@@ -17,6 +18,7 @@
 	height:65%;
 	width:10%;
     left:2%;
+    top:5%;
 
 }
 
@@ -25,4 +27,27 @@
    top: 85%;
    left:2%;
    position: absolute; 
+}
+
+.timeStamp{
+   font-size:.7em;
+   left:13%;
+   top:5%;
+   position: absolute; 
+}
+
+.message{
+   font-size:.8em;
+   left:13%;
+   top: 35%;
+   position: absolute; 
+}
+
+.starBool{
+   font-size:.8em;
+   left:87%;
+   top:3%;   
+   position: absolute; 
+   border: 1px solid black;
+
 }
