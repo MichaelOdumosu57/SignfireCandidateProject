@@ -1,4 +1,7 @@
-<div class = 'header'>	
+<div class = 'header'>
 	<!-- <img src = `{{image}}` (click) = 'getImage()' /> -->
-	<img [src]='DomSanitizer.bypassSecurityTrustUrl(image)'/>
+	<img class = 'logo' [src]='DomSanitizer.bypassSecurityTrustUrl(image)'/>
+	<div class = 'title'>
+	    <h2 class = 'text'>MESSAGE VIEWER</h2>
+    </div>
 </div>

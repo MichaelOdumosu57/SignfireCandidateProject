@@ -6,20 +6,17 @@ const path = require('path')
 const fs = require('fs');
 const compression = require('compression')
 const cors = require('cors')
+//middleware
+const logo = require('./middleware/logo.js')
+//
 
 app.use(  cors()   )
 app.use(   compression()  )
 
-app.get('/backend/angularLogoRequest', function (   req, res, next   ) {
-	res.json('http://localhost/backend/signafireLogo')
-},function(   err,req, res, next   ){
-	console.log('a problem occured could not send logo string to the server')
-});
+app.get('/backend/angularLogoRequest', logo.url,logo.error);
 
 
-app.get('/backend/signafireLogo', function (   req, res, next   ) {
-	res.sendFile(   __dirname + '/Misc/images/assets_logo-sf-small.png'   )
-});
+app.get('/backend/signafireLogo', logo.image(   {dirname:__dirname}   ),logo.error);
 
 
 

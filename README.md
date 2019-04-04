@@ -12,9 +12,10 @@
 ###  Goal 2
 	display the star tab
 	understand if its a logo or a div you are given and make appropriate messages for the SigHeader
+	get that message viewer in there
 
 
-##Achieved 
+##Achieved
 
 ###Achieved 1
 	
@@ -48,6 +49,7 @@ for app
 
 #SigHeader Component
 	* responsible for showing the logo as well as that message viewer
+	
 
 #sigheader Service
-	responsible for getting the logo from the backend	
+	responsible for getting the logo from the backend

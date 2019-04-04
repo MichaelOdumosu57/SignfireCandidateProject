@@ -7,3 +7,17 @@
 	width: 100%;
 	height:5%;
 }
+
+.logo {
+    
+}
+
+.title {
+    height:100%;
+    width:15%;
+    left:80%;
+}
+
+div > h2.text {
+    font-size:.8em
+}
