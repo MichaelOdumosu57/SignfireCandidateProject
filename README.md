@@ -29,6 +29,11 @@
 	displaying start tab
 	its a logo for the sigHeader
 	completed the sigHeader
+
+###Achieved 3
+	displayed length of messages starred
+	toggle starring messages
+
 	
 
 
@@ -61,3 +66,6 @@ for app
 	
 #starquantity service
     responible for determing the amount of starred items in the app and getting the list for the back
+
+#toggle service
+	responsible for everything toggle

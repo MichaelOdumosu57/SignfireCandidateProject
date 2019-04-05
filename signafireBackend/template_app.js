@@ -7,10 +7,10 @@ const fs = require('fs');
 const compression = require('compression')
 const cors = require('cors')
 //middleware
+global.ultraObject = require('./middleware/ultraObject.js')
 const backend = express.Router()
 const logo = require('./middleware/logo.js')
 const messages = require('./middleware/messages.js')
-global.ultraObject = require('./middleware/ultraObject.js')
 //
 
 app.use(  cors()   )
@@ -18,8 +18,11 @@ app.use(   compression()  )
 app.use(   '/backend',backend   )
 backend.get(   '/angularLogoRequest', logo.url,logo.error   );
 backend.get(   '/signafireLogo', logo.image(   {dirname:__dirname}   ),logo.error);
-backend.get(   '/messages',messages.provide   )
-backend.get(   '/starredAmount',messages.count   )
+backend.get(   '/messages',messages.provide,messages.error   )
+backend.get(   '/starredAmount',messages.count,messages.error   )
+//toggling functionality
+backend.post(   '/toggleStarred',messages.toggleBool,messages.error   )
+//
 
 
 

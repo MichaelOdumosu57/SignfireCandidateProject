@@ -21,3 +21,5 @@ success
 to genenrate a service
 
 ng
+
+if something is to respond to an action in another component, the changing property should be placed in the service for better results

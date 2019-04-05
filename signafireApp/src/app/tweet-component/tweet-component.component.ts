@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Tweet } from '../tweets';
 import { StarquantityService } from '../starquantity.service';
-import { ToggleService } from '../toggle.service'
+import { ToggleService } from '../toggle.service';
+
 
 @Component({
   selector: 'app-tweet-component',
@@ -12,7 +13,7 @@ export class TweetComponentComponent implements OnInit {
   
   constructor(
     private sqS:StarquantityService,
-    private tS: ToggleService
+    private tS: ToggleService,    
   ) { }
   tweetList: Tweet[];  
   starMessage: string = '';
@@ -35,7 +36,8 @@ export class TweetComponentComponent implements OnInit {
   toggle(target:Tweet):void {            
     this.tS.bool(   target   )
       .subscribe(result => {          
-        target.starred = result;
+        target.starred = result;   
+        this.sqS.getAmount();     
     });
   }
   ngOnInit() {
