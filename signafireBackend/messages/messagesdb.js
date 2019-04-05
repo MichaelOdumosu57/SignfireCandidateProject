@@ -8,13 +8,13 @@ module.exports.db = [
 	{
 		message:'Alpine Alpine Alpine Alpine Alpine ',
 		name:'Smooth Kipper',
-		date:'Feb 24, 2017',
+		date:'Jan 21, 2017',
 		starred:false
 	},
 	{
 		message:'Semper Semper Semper Semper Semper Semper',
 		name:'Tom Kaligher',
-		date:'Feb 24, 2017',
+		date:'May 24, 2016',
 		starred:false
 	}		
 ]	
