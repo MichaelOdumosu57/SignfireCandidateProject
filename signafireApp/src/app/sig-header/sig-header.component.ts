@@ -13,13 +13,12 @@ export class SigHeaderComponent implements OnInit {
 	
 
 	constructor(
-		private sigheaderS: SigheaderService,
+		private sS: SigheaderService,
 		private DomSanitizer: DomSanitizer
 	) { }
 	image:string = '';	
-	getImage(): void {
-		console.log(this.sigheaderS)		
-		this.sigheaderS.getLogo()
+	getImage(): void {				
+		this.sS.getLogo()
 			.subscribe(logoString => {
 				console.log(logoString)
 				this.image = logoString;

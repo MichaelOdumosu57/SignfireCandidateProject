@@ -8,15 +8,14 @@ const compression = require('compression')
 const cors = require('cors')
 //middleware
 const logo = require('./middleware/logo.js')
+const backend = express.Router()
 //
 
 app.use(  cors()   )
 app.use(   compression()  )
-
-app.get(   '/backend/angularLogoRequest', logo.url,logo.error   );
-
-
-app.get('/backend/signafireLogo', logo.image(   {dirname:__dirname}   ),logo.error);
+app.use(   '/backend',backend   )
+backend.get(   '/angularLogoRequest', logo.url,logo.error   );
+backend.get(   '/signafireLogo', logo.image(   {dirname:__dirname}   ),logo.error);
 
 
 

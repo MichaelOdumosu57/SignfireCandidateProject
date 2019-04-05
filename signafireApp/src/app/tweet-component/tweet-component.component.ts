@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tweet } from '../tweets';
+import { StarquantityService } from '../starquantity.service';
 
 @Component({
   selector: 'app-tweet-component',
@@ -8,7 +9,10 @@ import { Tweet } from '../tweets';
 })
 export class TweetComponentComponent implements OnInit {
   
-  tweetList: number[] = [1,2,3];
+  constructor(
+    private sqS:StarquantityService 
+  ) { }
+  tweetList: Tweet[];
   items: Tweet={
 		message:'',
 		name:'',
@@ -18,9 +22,8 @@ export class TweetComponentComponent implements OnInit {
   dist:  number = 10;
   starMessage: string = 'Star Message';
   add(item:Tweet):void {
-  	
+    this.tweetList.push(   this.sqS.getMessages() )
   };
-  constructor() { }
 
   ngOnInit() {
   	this.add(this.items)
