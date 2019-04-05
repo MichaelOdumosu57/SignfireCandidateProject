@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarquantityService } from '../starquantity.service';
 
 @Component({
   selector: 'app-star-tab',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarTabComponent implements OnInit {
       
-  constructor() { }
-  starred:number = 0;
+  constructor(
+  	private sqS: StarquantityService
+  ) { }
+  starred:number = 3;
+  getAmount(): void {
+  	this.sqS.getMessagesAmount()
+      .subscribe(starredAmount => {        
+        this.starred = starredAmount;
+        //if bug check here
+      });   	
+  }
   ngOnInit() {
+  	this.getAmount();
   }
 
 }
