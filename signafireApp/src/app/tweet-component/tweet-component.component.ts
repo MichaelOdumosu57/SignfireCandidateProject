@@ -8,21 +8,21 @@ import { Tweet } from '../tweets';
 })
 export class TweetComponentComponent implements OnInit {
   
-  tweetList: number[] = [1,2,3];  
+  tweetList: number[] = [1,2,3];
   items: Tweet={
 		message:'',
 		name:'',
 		date:'',
 		starred:false
 	};
-  dist:  10;
-  add(item:Tweet):void {  	
+  dist:  number = 10;
+  starMessage: string = 'Star Message';
+  add(item:Tweet):void {
   	
   };
-
   constructor() { }
 
-  ngOnInit() {  	
+  ngOnInit() {
   	this.add(this.items)
   }
 

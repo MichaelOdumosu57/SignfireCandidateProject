@@ -14,6 +14,9 @@
 	understand if its a logo or a div you are given and make appropriate messages for the SigHeader
 	get that message viewer in there
 
+### Goal 3
+    Display length of messages starred
+    Toggle starring messages
 
 ##Achieved
 
@@ -25,6 +28,8 @@
 ###Achieved 2
 	displaying start tab
 	its a logo for the sigHeader
+	completed the sigHeader
+	
 
 
 
@@ -53,3 +58,6 @@ for app
 
 #sigheader Service
 	responsible for getting the logo from the backend
+	
+#starquantity service
+    responible for determing the amount of starred items in the app and getting the list for the back

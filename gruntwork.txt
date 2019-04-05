@@ -17,3 +17,7 @@ npm install -g npm
 npm install -g @angular/cli
 
 success
+
+to genenrate a service
+
+ng

@@ -8,7 +8,7 @@
 }
 
 .spacing{
-    padding: 8%;            
+    padding: 8%;
     position: static;
 }
 
@@ -26,28 +26,35 @@
    font-size:.8em;
    top: 85%;
    left:2%;
-   position: absolute; 
+   position: absolute;
 }
 
 .timeStamp{
    font-size:.7em;
    left:13%;
    top:5%;
-   position: absolute; 
+   position: absolute;
 }
 
 .message{
    font-size:.8em;
    left:13%;
    top: 35%;
-   position: absolute; 
+   position: absolute;
 }
 
-.starBool{
+.star-false{
    font-size:.8em;
    left:87%;
-   top:3%;   
-   position: absolute; 
+   top:3%;
+   position: absolute;
    border: 1px solid black;
+   background-color:white;
 
 }
+
+.star-true {
+    background-color:yellow;
+    border: 1px solid black;
+}
+

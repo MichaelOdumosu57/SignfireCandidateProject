@@ -13,7 +13,7 @@ const logo = require('./middleware/logo.js')
 app.use(  cors()   )
 app.use(   compression()  )
 
-app.get('/backend/angularLogoRequest', logo.url,logo.error);
+app.get(   '/backend/angularLogoRequest', logo.url,logo.error   );
 
 
 app.get('/backend/signafireLogo', logo.image(   {dirname:__dirname}   ),logo.error);

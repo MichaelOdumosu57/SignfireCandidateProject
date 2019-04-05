@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./star-tab.component.css']
 })
 export class StarTabComponent implements OnInit {
-
+      
   constructor() { }
-
+  starred:number = 0;
   ngOnInit() {
   }
 

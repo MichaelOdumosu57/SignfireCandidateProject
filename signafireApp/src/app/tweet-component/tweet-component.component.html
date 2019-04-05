@@ -1,9 +1,10 @@
 <div class= 'spacing' *ngFor= 'let tweets of tweetList'>
-	<div class = 'well ' >			
+	<div class = 'well ' >
 		<div class = 'image'></div>
 		<h3 class = 'name'>Kevin.Kazak</h3>
 		<h3 class = 'timeStamp'>Twitter | Feb 21, 2017</h3>
 		<h3 class = 'message'>Lorom ipt dolor</h3>
-		<div class = 'starBool'>Star Message!</div>
+		<div class = 'star-false'>{{starMessage}}</div>
+		<!--FIX MEmake this depend on the starred value in tweetList when the backend finally sends it-->
 	</div>
-</div>	
+</div>
