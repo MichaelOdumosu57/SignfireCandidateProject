@@ -4,7 +4,7 @@
 		<h3 class = 'name'>{{tweets.name}}</h3>
 		<h3 class = 'timeStamp'>Twitter | {{tweets.date}}</h3>
 		<h3 class = 'message'>{{tweets.message}}</h3>
-		<div class = 'star-false'>{{starred(tweets.starred)}}</div>
+		<div  (click) ='toggle(tweets)' [class.star-true]="tweets.starred" [class.star-false]="!tweets.starred">{{starred(tweets.starred)}}</div>
 		<!--FIX MEmake this depend on the starred value in tweetList when the backend finally sends it-->
 	</div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tweet } from '../tweets';
 import { StarquantityService } from '../starquantity.service';
+import { ToggleService } from '../toggle.service'
 
 @Component({
   selector: 'app-tweet-component',
@@ -10,7 +11,8 @@ import { StarquantityService } from '../starquantity.service';
 export class TweetComponentComponent implements OnInit {
   
   constructor(
-    private sqS:StarquantityService 
+    private sqS:StarquantityService,
+    private tS: ToggleService
   ) { }
   tweetList: Tweet[];  
   starMessage: string = '';
@@ -30,6 +32,12 @@ export class TweetComponentComponent implements OnInit {
         //if bug check here
       });     
   };
+  toggle(target:Tweet):void {            
+    this.tS.bool(   target   )
+      .subscribe(result => {          
+        target.starred = result;
+    });
+  }
   ngOnInit() {
   	this.populate()
   }

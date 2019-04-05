@@ -54,6 +54,10 @@
 }
 
 .star-true {
+    font-size:.8em;
+    left:87%;
+    top:3%;
+    position: absolute;    
     background-color:yellow;
     border: 1px solid black;
 }

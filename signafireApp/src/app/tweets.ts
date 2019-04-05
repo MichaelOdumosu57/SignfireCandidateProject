@@ -3,4 +3,5 @@ export class Tweet  {
 	name:string;
 	date:string;
 	starred:boolean;
+	index:number;
 }
