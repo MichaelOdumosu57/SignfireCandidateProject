@@ -12,11 +12,9 @@ export class TweetComponentComponent implements OnInit {
   constructor(
     private sqS:StarquantityService 
   ) { }
-  tweetList: Tweet[];
-  dist:  number = 10;
+  tweetList: Tweet[];  
   starMessage: string = '';
-  starred(bool:boolean): string { 
-    console.log(bool)   
+  starred(bool:boolean): string {        
     if(   bool   ){
       this.starMessage = 'Starred!';
     }    
@@ -28,7 +26,7 @@ export class TweetComponentComponent implements OnInit {
   populate():void {
     this.sqS.getMessages()    
       .subscribe(messageArray => {        
-        this.tweetList = messageArray.db;
+        this.tweetList = messageArray;
         //if bug check here
       });     
   };
