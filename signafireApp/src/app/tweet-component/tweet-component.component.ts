@@ -13,20 +13,17 @@ export class TweetComponentComponent implements OnInit {
     private sqS:StarquantityService 
   ) { }
   tweetList: Tweet[];
-  items: Tweet={
-		message:'',
-		name:'',
-		date:'',
-		starred:false
-	};
   dist:  number = 10;
   starMessage: string = 'Star Message';
-  add(item:Tweet):void {
-    this.tweetList.push(   this.sqS.getMessages() )
+  add():void {
+    this.sqS.getMessages()    
+      .subscribe(messageArray => {
+        console.log(messageArray.db)
+        this.tweetList = messageArray.db;
+      });     
   };
-
   ngOnInit() {
-  	this.add(this.items)
+  	this.add()
   }
 
 }

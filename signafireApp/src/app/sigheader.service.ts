@@ -11,7 +11,7 @@ export class SigheaderService {
 	constructor(
 		private http: HttpClient
 	) { }
-	private handleError (operation = 'operation', result?: '') {
+	handleError (operation = 'operation', result?: '') {
 	  return (error: any): Observable<any> => {
 	 
 	    // TODO: send the error to remote logging infrastructure

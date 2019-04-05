@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Tweet } from '../tweets';
-import { SigheaderService } from '../sigheader.service';
+import { Tweet } from './tweets';
+import { SigheaderService } from './sigheader.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,12 @@ import { SigheaderService } from '../sigheader.service';
 export class StarquantityService {
 
 	constructor(
-		private http: HttpClient
+		private http: HttpClient,
 		private sS: SigheaderService
 	) { }  
+	messageUrl: string = '/backend/messages';
 	getMessages(): Observable<Tweet[]>{
-	  return this.http.get<Tweet[]>(this.logoUrl)
+	  return this.http.get<Tweet[]>(this.messageUrl)
 	    .pipe(
 	      tap(_ => console.log('fetched messages String')),
 	      catchError(this.sS.handleError('getLogo'))
