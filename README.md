@@ -1,10 +1,10 @@
 #Signafire Candidate Assignment
 
-##Goals
+## Goals
 
 ### Goal 1
     match the styling as close as possible in the wireframe
-        ergonomic
+    ergonomic
     modularity
     very neat
     got bootstrap in the API styles
@@ -18,21 +18,30 @@
     Display length of messages starred
     Toggle starring messages
 
+### Goal 4   
+	place trash button on right side of star message button
+	button font -color
+	click to trash a message
+	messages should disappear
+
 ##Achieved
 
-###Achieved 1
+## Milestone 1 Frontend MVP portion completed
+### Achieved 1
 	
 	matched the stylying of the tweets as close as I could
 	getting plenty of modularity
  
-###Achieved 2
+### Achieved 2
 	displaying start tab
 	its a logo for the sigHeader
 	completed the sigHeader
 
-###Achieved 3
+### Achieved 3
 	displayed length of messages starred
 	toggle starring messages
+
+	
 
 	
 
