@@ -4,6 +4,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SigheaderService } from './sigheader.service';
 import { Tweet } from './tweets';
+import { DbTweet } from './dbTweet';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -28,8 +29,8 @@ export class TrashService {
         //API gives a string not that <T> type
       );      
   }; 
-  deleteTweet(garbage:Tweet): Observable<Tweet[]>{
-     return this.http.put<Tweet[]>(this.deleteUrl, garbage, httpOptions)
+  deleteTweet(garbage:Tweet): Observable<DbTweet>{
+     return this.http.put<DbTweet>(this.deleteUrl, garbage, httpOptions)
       .pipe(
         tap(_ => console.log('deleted tweet')),
         catchError(this.sgS.handleError('getMessages'))

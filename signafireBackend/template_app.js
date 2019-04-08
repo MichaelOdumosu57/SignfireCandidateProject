@@ -19,14 +19,15 @@ app.use(   '/backend',backend   )
 backend.get(   '/angularLogoRequest', logo.url,logo.error   );
 backend.get(   '/angularTrashRequest', logo.url,logo.error   );
 backend.get(   '/signafireLogo', logo.logoImage(   {dirname:__dirname}   ),logo.error);
-backend.get(   '/signafireTrash', logo.trashImage(   {dirname:__dirname}   ),logo.error);
+// backend.get(   '/signafireTrash', logo.trashImage(   {dirname:__dirname}   ),logo.error);
 backend.get(   '/messages',messages.provide,messages.error   )
 backend.get(   '/starredAmount',messages.count,messages.error   )
 //toggling functionality
 backend.post(   '/toggleStarred',messages.toggleBool,messages.error   )
+//
+// trash functionality
 backend.put(   '/trashTweet',messages.deleteTweet,messages.error   )
 //
-
 
 
 

@@ -8,6 +8,7 @@ import { StarTabComponent } from './star-tab/star-tab.component';
 import { SigHeaderComponent } from './sig-header/sig-header.component';
 
 import { HttpClientModule }    from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule }    from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

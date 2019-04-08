@@ -24,6 +24,11 @@
 	click to trash a message
 	messages should disappear
 
+### Goal 5
+	place a view toggle box under the starred count area
+	toggle the view to show trashed messages and untrashed messages
+		
+
 ##Achieved
 
 ## Milestone 1 Frontend MVP portion completed
@@ -81,3 +86,6 @@ for app
 
 #toggle service
 	responsible for everything toggle
+
+#trash service
+	part of tweet component, responsible for trashing the tweet	

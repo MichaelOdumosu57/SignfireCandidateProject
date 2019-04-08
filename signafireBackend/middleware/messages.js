@@ -1,4 +1,5 @@
 var db = require('../messages/messagesdb.js').db
+var dbTrash = []
 const assert = require('assert')
 
 
@@ -67,7 +68,7 @@ module.exports.deleteTweet = function(   req,res,next   ){
 	        which:0,
 	        how:function(   dev_obj   ){
 	        	if(   dev_obj.compAgnI.index === dev_obj.compTo.index   ){
-	        		db.splice(   dev_obj.index,1   )
+	        		dbTrash.push(db.splice(   dev_obj.index,1   ))
 	        		console.log('deleted')
 	        		return 'a'
 	        		//not returning anything here actually retuns true
@@ -87,7 +88,10 @@ module.exports.deleteTweet = function(   req,res,next   ){
 			}	    	
 			ultraObject.forLoop(   mFL_0_i   )			
 			mBOOL_1_i = {0:false}
-	    	res.json(   db   )
+	    	res.json({
+	    		dbActive:db,
+	    		dbTrash
+	    	})
 	    }
 	    else{
 	    	next()

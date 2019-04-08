@@ -20,7 +20,9 @@ export class TweetComponentComponent implements OnInit {
     private trS: TrashService,    
     private DomSanitizer: DomSanitizer,
   ) { }
-  tweetList: Tweet[];  
+  tweetList: Tweet[];
+  activeTweetList:  Tweet[];
+  trashedTweetList: Tweet[];
   starMessage: string = '';
   image : string = ''; 
   getImage(): void {        
@@ -40,8 +42,10 @@ export class TweetComponentComponent implements OnInit {
   };
   trash(   garbage:Tweet   ): void {
     this.trS.deleteTweet(   garbage   )
-      .subscribe(newTweetList => {        
-        this.tweetList = newTweetList;
+      .subscribe(newTweetLists => {      
+        console.log(newTweetLists)  
+        this.tweetList = this.activeTweetList = newTweetLists.dbActive;
+        this.trashedTweetList =newTweetLists.dbTrash;                 
       });     
   }
   populate():void {
