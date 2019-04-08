@@ -1,11 +1,37 @@
 module.exports.url = function (   req, res, next   ) {
-	res.json('http://24.189.66.225/backend/signafireLogo')
+
+
+	if(   req.path === '/angularLogoRequest'){
+
+
+		res.json('http://24.189.66.225/backend/signafireLogo')
+
+
+	}
+
+
+	else if(   req.path === '/angularTrashRequest'){
+
+		console.log(req.path)
+		res.json('http://24.189.66.225/backend/signafireTrash')
+
+
+	}	
+
+
 }
 
-module.exports.image = function(   dev_obj   ){
+module.exports.logoImage = function(   dev_obj   ){
     return function (   req, res, next   ) {
         
     	res.sendFile(   dev_obj.dirname + '/Misc/images/assets_logo-sf-small.png'   )
+    }
+}
+
+module.exports.trashImage = function(   dev_obj   ){
+    return function (   req, res, next   ) {
+        
+    	res.sendFile(   dev_obj.dirname + '/Misc/images/trash_can.png'   )
     }
 }
 

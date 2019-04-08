@@ -9,11 +9,26 @@
 
 .trash-can{
   position:absolute;
-  width:5%;
+  width:3%;
   height:20%;
-  left:92%;
-  top:3%;
+  left:95%;
+  z-index: -2;
+  
+  background-color:#ff4007;
+  
+  
 }
+
+
+.glyphicon-trash:before {
+    color:#ffffff;
+    top: 15%;
+    left:11%;
+    position: absolute;
+
+}
+
+
 .spacing{
     padding: 8%;
     position: static;

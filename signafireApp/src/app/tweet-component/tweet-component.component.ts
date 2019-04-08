@@ -22,7 +22,7 @@ export class TweetComponentComponent implements OnInit {
   ) { }
   tweetList: Tweet[];  
   starMessage: string = '';
-  image : string = '';
+  image : string = ''; 
   getImage(): void {        
     this.trS.getTrashImage()
       .subscribe(trashString => {        
@@ -54,7 +54,7 @@ export class TweetComponentComponent implements OnInit {
   }
   ngOnInit() {
   	this.populate();
-    this.getImage()
+    // this.getImage()
   }
 
 }
