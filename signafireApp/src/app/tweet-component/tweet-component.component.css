@@ -7,6 +7,13 @@
     border: 1px solid black;
 }
 
+.trash-can{
+  position:absolute;
+  width:5%;
+  height:20%;
+  left:92%;
+  top:3%;
+}
 .spacing{
     padding: 8%;
     position: static;
@@ -45,7 +52,7 @@
 
 .star-false{
    font-size:.8em;
-   left:87%;
+   left:80%;
    top:3%;
    position: absolute;
    border: 1px solid black;
@@ -55,7 +62,7 @@
 
 .star-true {
     font-size:.8em;
-    left:87%;
+    left:80%;
     top:3%;
     position: absolute;    
     background-color:yellow;

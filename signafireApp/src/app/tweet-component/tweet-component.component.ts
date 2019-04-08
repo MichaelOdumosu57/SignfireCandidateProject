@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Tweet } from '../tweets';
 import { StarquantityService } from '../starquantity.service';
 import { ToggleService } from '../toggle.service';
+import {   DomSanitizer   } from '@angular/platform-browser';
+import { TrashService } from '../trash.service';
+
 
 
 @Component({
@@ -13,10 +16,19 @@ export class TweetComponentComponent implements OnInit {
   
   constructor(
     private sqS:StarquantityService,
-    private tS: ToggleService,    
+    private tS: ToggleService,
+    private trS: TrashService,    
+    private DomSanitizer: DomSanitizer,
   ) { }
   tweetList: Tweet[];  
   starMessage: string = '';
+  image : string = '';
+  getImage(): void {        
+    this.trS.getTrashImage()
+      .subscribe(trashString => {        
+        this.image = trashString;
+      });   
+  }
   starred(bool:boolean): string {        
     if(   bool   ){
       this.starMessage = 'Starred!';
@@ -41,7 +53,8 @@ export class TweetComponentComponent implements OnInit {
     });
   }
   ngOnInit() {
-  	this.populate()
+  	this.populate();
+    this.getImage()
   }
 
 }
