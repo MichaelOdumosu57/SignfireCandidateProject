@@ -38,6 +38,12 @@ export class TweetComponentComponent implements OnInit {
     }
     return this.starMessage
   };
+  trash(   garbage:Tweet   ): void {
+    this.trS.deleteTweet(   garbage   )
+      .subscribe(trashString => {        
+        // this.image = trashString;
+      });     
+  }
   populate():void {
     this.sqS.getMessages()    
       .subscribe(messageArray => {        
@@ -45,7 +51,7 @@ export class TweetComponentComponent implements OnInit {
         //if bug check here
       });     
   };
-  toggle(target:Tweet):void {            
+  toggle(   target:Tweet   ):void {            
     this.tS.bool(   target   )
       .subscribe(result => {          
         target.starred = result;   

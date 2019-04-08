@@ -52,6 +52,52 @@ module.exports.toggleBool =  function (   req, res, next   ) {
 	})	
 }
 
+module.exports.deleteTweet = function(   req,res,next   ){
+	req.on(   'data',(chunk)=> {
+		if(   req.body === undefined) req.body = '';
+		req.body += chunk
+	})
+	req.on(   'end',() => {
+		req.body = JSON.parse(   req.body   )
+		console.log(req.body)
+		console.log(db)
+	    var mBOOL_1_i = {0:false}
+	    mBOOL_1_i = ultraObject.severalOr({
+	        compTo:req.body, 
+	        compAgn:db,
+	        boolean:mBOOL_1_i,
+	        which:0,
+	        how:function(   dev_obj   ){
+	        	if(   dev_obj.compAgnI.index === dev_obj.compTo.index   ){
+	        		db.splice(   dev_obj.index,1   )
+	        		console.log('deleted')
+	        		return 'a'
+	        		//not returning anything here actually retuns true
+	        	}    	           		           
+	        },	
+	        result:'a'        
+	    })		
+	    console.log(mBOOL_1_i)
+	    if(   mBOOL_1_i[0]   ){	    		    	
+			var mFL_0_i = {
+			    forLoop_0_i:0,
+			    forLoopLength:db.length,
+			    fn:function(   dev_obj   ){
+			    	db[mFL_0_i.forLoop_0_i].index = mFL_0_i.forLoop_0_i 
+			    },
+			    args:{}
+			}	    	
+			ultraObject.forLoop(   mFL_0_i   )			
+			mBOOL_1_i = {0:false}
+	    	res.json(   'delete'   )
+	    }
+	    else{
+	    	next()
+	    }		
+	})
+}
+
 module.exports.error = function(   err,req,res,next   ){
 	res.json('something broke while dealing with message service')
 }
+

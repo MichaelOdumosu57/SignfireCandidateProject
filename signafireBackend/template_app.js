@@ -24,6 +24,7 @@ backend.get(   '/messages',messages.provide,messages.error   )
 backend.get(   '/starredAmount',messages.count,messages.error   )
 //toggling functionality
 backend.post(   '/toggleStarred',messages.toggleBool,messages.error   )
+backend.put(   '/trashTweet',messages.deleteTweet,messages.error   )
 //
 
 

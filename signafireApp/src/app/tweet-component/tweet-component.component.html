@@ -6,7 +6,7 @@
 		<h3 class = 'message'>{{tweets.message}}</h3>
 		<div  (click) ='toggle(tweets)' [class.star-true]="tweets.starred" [class.star-false]="!tweets.starred">{{starred(tweets.starred)}}</div>
 		<!-- associated -->		
-		<div class = 'trash-can glyphicon glyphicon-trash'></div>
+		<div class = 'trash-can glyphicon glyphicon-trash' (click) = 'trash(tweets)'></div>
 		<!-- <img class = 'trash-can glyphicon glyphicon-trash' [src]='DomSanitizer.bypassSecurityTrustUrl(image)'/> -->
 
 		<!--however here changing the color can chagne the image although i rather change the font  -->

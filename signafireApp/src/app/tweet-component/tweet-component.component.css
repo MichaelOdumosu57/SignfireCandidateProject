@@ -46,7 +46,7 @@
 
 .name {
    font-size:.8em;
-   top: 85%;
+   top: 55%;
    left:2%;
    position: absolute;
 }
@@ -54,14 +54,14 @@
 .timeStamp{
    font-size:.7em;
    left:13%;
-   top:5%;
+   top:-10%;
    position: absolute;
 }
 
 .message{
    font-size:.8em;
    left:13%;
-   top: 35%;
+   top: 7%;
    position: absolute;
 }
 
