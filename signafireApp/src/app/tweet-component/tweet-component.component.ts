@@ -21,23 +21,26 @@ from 'rxjs/operators';
 })
 export class TweetComponentComponent implements OnInit {
   
+  
+
   constructor(
     private sqS:StarquantityService,
     private tS: ToggleService,
     private trS: TrashService,    
     private DomSanitizer: DomSanitizer,
   ) { }
-  tweetList: Tweet[]; // USE $ next time  
+  tweetList: Tweet[]; // USE $ next time    
   starMessage: string = '';
-  image : string = ''; 
+  image : string = '';
+  gun:Array<string> = ['a'] 
   getImage(): void {        
     this.trS.getTrashImage()
       .subscribe(trashString => {        
         this.image = trashString;
       });   
   }
-  trashToggle(question:Tweet[],command:Observable<string>): Tweet[]{
-    
+  trashToggle(question:Tweet[],command:Observable<string>): Tweet[][]{
+    console.log(this.gun)
     if(   command !== undefined   ){
           command.subscribe((value)=>{
             console.log(value)
@@ -46,13 +49,14 @@ export class TweetComponentComponent implements OnInit {
             }
             else if(value === 'trash'){
               this.tweetList = this.trS.chosenTweetList =  this.trS.trashedTweetList
+              console.log(this.trS.trashedTweetList)
             }   
-            return this.tweetList;        
+            return [this.tweetList];        
           })
     }
 
    
-    return this.tweetList;
+    return [this.tweetList]; 
   };
   starred(bool:boolean): string {        
     if(   bool   ){
@@ -87,7 +91,18 @@ export class TweetComponentComponent implements OnInit {
   }
   ngOnInit() {
   	this.populate();
+    this.trS.trashWatcher.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(100),
 
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+
+      // switch to new search observable each time the term changes
+      switchMap(() => this.trashToggle(this.tweetList,this.trS.command$)),
+    ).subscribe();
+    // works but I get an error idk why
+    // it only wants a Promise Observable array or iterable
   }
 
 }

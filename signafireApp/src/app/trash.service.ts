@@ -20,7 +20,7 @@ const myObservable = from(['active']);
   providedIn: 'root'
 })
 export class TrashService {
-
+  trashWatcher = new Subject<string>();
   constructor(
   	private http: HttpClient,
   	private sgS: SigheaderService,
@@ -55,6 +55,9 @@ export class TrashService {
   }; 
   generateTweetList(): void{
     this.chosenTweetList = this.activeTweetList;    
+  };
+  repopulate(term: string): void {    
+    this.trashWatcher.next(term);
   }
   toggleTweetList(command:string): void{
     // console.log(command)
@@ -65,7 +68,7 @@ export class TrashService {
     else if(   command === 'trash'   ){
         this.chosenTweetList = this.trashedTweetList;        
     }  
-    this.command$ = from([command])
-    this.command$.subscribe(myObserver)
+    this.command$ = from([command])    
+    this.repopulate(command)
   }
 }
