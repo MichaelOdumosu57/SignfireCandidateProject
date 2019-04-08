@@ -59,8 +59,6 @@ module.exports.deleteTweet = function(   req,res,next   ){
 	})
 	req.on(   'end',() => {
 		req.body = JSON.parse(   req.body   )
-		console.log(req.body)
-		console.log(db)
 	    var mBOOL_1_i = {0:false}
 	    mBOOL_1_i = ultraObject.severalOr({
 	        compTo:req.body, 
@@ -89,7 +87,7 @@ module.exports.deleteTweet = function(   req,res,next   ){
 			}	    	
 			ultraObject.forLoop(   mFL_0_i   )			
 			mBOOL_1_i = {0:false}
-	    	res.json(   'delete'   )
+	    	res.json(   db   )
 	    }
 	    else{
 	    	next()

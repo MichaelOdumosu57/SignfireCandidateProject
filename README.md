@@ -39,7 +39,10 @@
 
 ### Achieved 3
 	displayed length of messages starred
-	toggle starring messages
+	toggle starring messages 
+
+### Achieved 4
+	properly added the trash button and the tweet disappears	
 
 	
 

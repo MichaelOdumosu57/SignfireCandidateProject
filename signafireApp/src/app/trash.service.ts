@@ -28,8 +28,8 @@ export class TrashService {
         //API gives a string not that <T> type
       );      
   }; 
-  deleteTweet(garbage:Tweet): Observable<boolean>{
-     return this.http.put<any>(this.deleteUrl, garbage, httpOptions)
+  deleteTweet(garbage:Tweet): Observable<Tweet[]>{
+     return this.http.put<Tweet[]>(this.deleteUrl, garbage, httpOptions)
       .pipe(
         tap(_ => console.log('deleted tweet')),
         catchError(this.sgS.handleError('getMessages'))

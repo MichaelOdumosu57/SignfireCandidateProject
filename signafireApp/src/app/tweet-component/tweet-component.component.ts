@@ -40,8 +40,8 @@ export class TweetComponentComponent implements OnInit {
   };
   trash(   garbage:Tweet   ): void {
     this.trS.deleteTweet(   garbage   )
-      .subscribe(trashString => {        
-        // this.image = trashString;
+      .subscribe(newTweetList => {        
+        this.tweetList = newTweetList;
       });     
   }
   populate():void {
