@@ -20,7 +20,7 @@ export class TweetComponentComponent implements OnInit {
     private trS: TrashService,    
     private DomSanitizer: DomSanitizer,
   ) { }
-  tweetList: Tweet[];
+  tweetList: Tweet[] = this.trS.chosenTweetList;
   starMessage: string = '';
   image : string = ''; 
   getImage(): void {        
@@ -41,13 +41,15 @@ export class TweetComponentComponent implements OnInit {
   trash(   garbage:Tweet   ): void {
     this.trS.deleteTweet(   garbage   )
       .subscribe(() => {                
-        this.tweetList = this.trS.activeTweetList;
+        // this.tweetList = this.trS.activeTweetList;
       });            
   }
   populate():void {
     this.sqS.getMessages()    
       .subscribe(messageArray => {        
-        this.tweetList = messageArray;
+        this.trS.activeTweetList = messageArray;
+        this.trS.generateTweetList();
+        this.tweetList = this.trS.chosenTweetList
         //if bug check here
       });     
   };

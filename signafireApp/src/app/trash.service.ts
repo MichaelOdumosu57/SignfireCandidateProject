@@ -21,7 +21,8 @@ export class TrashService {
   messageUrl: string = '/backend/angularTrashRequest';
   deleteUrl: string = '/backend/trashTweet';
   activeTweetList:  Tweet[];
-  trashedTweetList: Tweet[];  
+  trashedTweetList: Tweet[];
+  chosenTweetList:  Tweet[];
   getTrashImage(): Observable<string>{
     return this.http.get<string>(this.messageUrl)
       .pipe(
@@ -44,4 +45,7 @@ export class TrashService {
         //API gives a string not that <T> type
       );   	
   }; 
+  generateTweetList(): void{
+    this.chosenTweetList = this.activeTweetList;    
+  }
 }

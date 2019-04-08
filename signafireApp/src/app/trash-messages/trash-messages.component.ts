@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrashService } from '../trash.service';
 
 @Component({
   selector: 'app-trash-messages',
@@ -7,18 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrashMessagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  	private trS: TrashService
+  ) { }
 
   display:string = 'Show Trashed Messages';
-  dbChange():void{
-  	if(   this.display === 'Show Trashed Messages'   ){
-  		this.display = 'Show Untrashed Messages';
+  dbChange(flag:number):void{
+  	console.log(flag)
+  	if(   flag !== undefined){
+  		this.trS.generateTweetList();
   	}
   	else{
-  		this.display = 'Show Trashed Messages';
+	  	if(   this.display === 'Show Trashed Messages'   ){
+	  		this.display = 'Show Untrashed Messages';
+	  	}
+	  	else{
+	  		this.display = 'Show Trashed Messages';
+	  	}
   	}
   }
   ngOnInit() {
+  	// this.dbChange(1);
   }
 
 }
