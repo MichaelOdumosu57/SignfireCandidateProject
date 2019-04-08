@@ -21,8 +21,6 @@ export class TweetComponentComponent implements OnInit {
     private DomSanitizer: DomSanitizer,
   ) { }
   tweetList: Tweet[];
-  activeTweetList:  Tweet[];
-  trashedTweetList: Tweet[];
   starMessage: string = '';
   image : string = ''; 
   getImage(): void {        
@@ -42,11 +40,9 @@ export class TweetComponentComponent implements OnInit {
   };
   trash(   garbage:Tweet   ): void {
     this.trS.deleteTweet(   garbage   )
-      .subscribe(newTweetLists => {      
-        console.log(newTweetLists)  
-        this.tweetList = this.activeTweetList = newTweetLists.dbActive;
-        this.trashedTweetList =newTweetLists.dbTrash;                 
-      });     
+      .subscribe(() => {                
+        this.tweetList = this.trS.activeTweetList;
+      });            
   }
   populate():void {
     this.sqS.getMessages()    

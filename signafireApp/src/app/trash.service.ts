@@ -19,7 +19,9 @@ export class TrashService {
   	private sgS: SigheaderService,
   ) { }
   messageUrl: string = '/backend/angularTrashRequest';
-  deleteUrl: string = '/backend/trashTweet'
+  deleteUrl: string = '/backend/trashTweet';
+  activeTweetList:  Tweet[];
+  trashedTweetList: Tweet[];  
   getTrashImage(): Observable<string>{
     return this.http.get<string>(this.messageUrl)
       .pipe(
@@ -28,14 +30,18 @@ export class TrashService {
         //unlike promises this goes through both in ts you get an error becuase the 
         //API gives a string not that <T> type
       );      
-  }; 
+  };  
   deleteTweet(garbage:Tweet): Observable<DbTweet>{
      return this.http.put<DbTweet>(this.deleteUrl, garbage, httpOptions)
       .pipe(
-        tap(_ => console.log('deleted tweet')),
+        tap((newTweetLists) => {
+        	console.log('deleted tweet')
+	        this.activeTweetList = newTweetLists.dbActive;
+	        this.trashedTweetList =newTweetLists.dbTrash;        	
+        }),
         catchError(this.sgS.handleError('getMessages'))
         //unlike promises this goes through both in ts you get an error becuase the 
         //API gives a string not that <T> type
       );   	
-  } 
+  }; 
 }
