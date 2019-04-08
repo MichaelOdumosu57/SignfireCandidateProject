@@ -4,10 +4,12 @@ import { StarquantityService } from '../starquantity.service';
 import { ToggleService } from '../toggle.service';
 import {   DomSanitizer   } from '@angular/platform-browser';
 import { TrashService } from '../trash.service';
-import { Observable, Subject } from 'rxjs';
-import {
-   debounceTime, distinctUntilChanged, switchMap
- } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
+import { 
+  catchError, map, tap,
+  debounceTime, 
+  distinctUntilChanged, switchMap } 
+from 'rxjs/operators';
 
 
 
@@ -25,7 +27,7 @@ export class TweetComponentComponent implements OnInit {
     private trS: TrashService,    
     private DomSanitizer: DomSanitizer,
   ) { }
-  tweetList: Tweet[]; // USE $ next time
+  tweetList: Tweet[]; // USE $ next time  
   starMessage: string = '';
   image : string = ''; 
   getImage(): void {        
@@ -34,13 +36,22 @@ export class TweetComponentComponent implements OnInit {
         this.image = trashString;
       });   
   }
-  trashToggle(question:Tweet[],command:string): Tweet[]{ 
-    if(command === 'active'){
-      this.tweetList = this.trS.chosenTweetList =  this.trS.activeTweetList
+  trashToggle(question:Tweet[],command:Observable<string>): Tweet[]{
+    
+    if(   command !== undefined   ){
+          command.subscribe((value)=>{
+            console.log(value)
+            if(value === 'active'){
+              this.tweetList = this.trS.chosenTweetList =  this.trS.activeTweetList
+            }
+            else if(value === 'trash'){
+              this.tweetList = this.trS.chosenTweetList =  this.trS.trashedTweetList
+            }   
+            return this.tweetList;        
+          })
     }
-    else if(command === 'trash'){
-      this.tweetList = this.trS.chosenTweetList =  this.trS.trashedTweetList
-    }    
+
+   
     return this.tweetList;
   };
   starred(bool:boolean): string {        
@@ -55,7 +66,7 @@ export class TweetComponentComponent implements OnInit {
   trash(   garbage:Tweet   ): void {
     this.trS.deleteTweet(   garbage   )
       .subscribe(() => {                        
-        this.trashToggle(this.tweetList,this.trS.command)
+        this.trashToggle(this.tweetList,this.trS.command$)
       });            
   }
   populate():void {

@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable, of, Subject,from } from 'rxjs';
+import { 
+  catchError, map, tap,
+  debounceTime, 
+  distinctUntilChanged, switchMap } 
+from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SigheaderService } from './sigheader.service';
 import { Tweet } from './tweets';
@@ -8,7 +12,10 @@ import { DbTweet } from './dbTweet';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
+const myObserver = function(value:string): void{
+  console.log(value)
+};
+const myObservable = from(['active']);
 @Injectable({
   providedIn: 'root'
 })
@@ -22,8 +29,8 @@ export class TrashService {
   deleteUrl: string = '/backend/trashTweet';
   activeTweetList:  Tweet[];
   trashedTweetList: Tweet[];
-  chosenTweetList:  Tweet[];
-  command:string = 'active';
+  chosenTweetList:  Tweet[];  
+  command$:Observable<string> = from(['active']);
   getTrashImage(): Observable<string>{
     return this.http.get<string>(this.messageUrl)
       .pipe(
@@ -50,14 +57,15 @@ export class TrashService {
     this.chosenTweetList = this.activeTweetList;    
   }
   toggleTweetList(command:string): void{
-    console.log(command)
+    // console.log(command)
     if(   command === 'active'   ){
-        this.chosenTweetList = this.activeTweetList;
-        this.command = 'active';
+        this.chosenTweetList = this.activeTweetList;  
+
     } 
     else if(   command === 'trash'   ){
-        this.chosenTweetList = this.trashedTweetList;
-        this.command = 'trash';
-    }
+        this.chosenTweetList = this.trashedTweetList;        
+    }  
+    this.command$ = from([command])
+    this.command$.subscribe(myObserver)
   }
 }
