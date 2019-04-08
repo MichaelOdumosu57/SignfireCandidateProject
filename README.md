@@ -88,4 +88,7 @@ for app
 	responsible for everything toggle
 
 #trash service
-	part of tweet component, responsible for trashing the tweet	
+	part of tweet component, responsible for trashing the tweet		
+
+# TrashMessages 
+	button responsible for the UI  to toggle between trashed and active messages	

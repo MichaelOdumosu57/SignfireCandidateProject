@@ -23,6 +23,7 @@ export class TrashService {
   activeTweetList:  Tweet[];
   trashedTweetList: Tweet[];
   chosenTweetList:  Tweet[];
+  command:string = 'active';
   getTrashImage(): Observable<string>{
     return this.http.get<string>(this.messageUrl)
       .pipe(
@@ -47,5 +48,16 @@ export class TrashService {
   }; 
   generateTweetList(): void{
     this.chosenTweetList = this.activeTweetList;    
+  }
+  toggleTweetList(command:string): void{
+    console.log(command)
+    if(   command === 'active'   ){
+        this.chosenTweetList = this.activeTweetList;
+        this.command = 'active';
+    } 
+    else if(   command === 'trash'   ){
+        this.chosenTweetList = this.trashedTweetList;
+        this.command = 'trash';
+    }
   }
 }
