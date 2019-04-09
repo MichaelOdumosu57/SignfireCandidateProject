@@ -28,6 +28,10 @@
 	place a view toggle box under the starred count area
 	toggle the view to show trashed messages and untrashed messages
 		
+### Goal 6
+	place input box  with a submit button
+	user can type any text and click submit
+
 
 ##Achieved
 
@@ -95,3 +99,5 @@ for app
 
 # TrashMessages 
 	button responsible for the UI  to toggle between trashed and active messages	
+# InputMQ component
+	responsible for taking input from the user	

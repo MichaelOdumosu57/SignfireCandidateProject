@@ -1,0 +1,14 @@
+.form-control{
+	position:absolute;
+	width:40%;
+	left:32%;
+	top:15%;
+}
+
+.btn-secondary{
+	position:absolute;
+	height:6%;
+	top:15%;
+	left:75%;
+	width:15%;
+}

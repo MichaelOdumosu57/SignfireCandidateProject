@@ -39,7 +39,7 @@ export class TweetComponentComponent implements OnInit {
         this.image = trashString;
       });   
   }
-  trashToggle(question:Tweet[],command:Observable<string>): Tweet[]{
+  trashToggle(question:Tweet[],command:Observable<string>): Tweet[][]{
     console.log(this.gun)
     if(   command !== undefined   ){
           command.subscribe((value)=>{

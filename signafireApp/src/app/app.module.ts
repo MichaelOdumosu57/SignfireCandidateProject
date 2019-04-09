@@ -10,6 +10,7 @@ import { SigHeaderComponent } from './sig-header/sig-header.component';
 import { HttpClientModule }    from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { TrashMessagesComponent } from './trash-messages/trash-messages.component';
+import { InputMQComponent } from './input-mq/input-mq.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TrashMessagesComponent } from './trash-messages/trash-messages.componen
     TweetComponentComponent,
     StarTabComponent,
     SigHeaderComponent,
-    TrashMessagesComponent
+    TrashMessagesComponent,
+    InputMQComponent
   ],
   imports: [
     BrowserModule,
