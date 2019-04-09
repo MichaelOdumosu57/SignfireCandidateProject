@@ -49,6 +49,9 @@
 ### Achieved 4
 	properly added the trash button and the tweet disappears	
 
+### Achieved 5
+	done it properly toggles between garbed and non garbage although garbage loses some of its properties
+	found out why garbage lost its properties, db.splice put the tweet in the array so the problem was from the backend
 	
 
 	

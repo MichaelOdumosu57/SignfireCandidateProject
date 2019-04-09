@@ -68,7 +68,7 @@ module.exports.deleteTweet = function(   req,res,next   ){
 	        which:0,
 	        how:function(   dev_obj   ){
 	        	if(   dev_obj.compAgnI.index === dev_obj.compTo.index   ){
-	        		dbTrash.push(db.splice(   dev_obj.index,1   ))
+	        		dbTrash.push(db.splice(   dev_obj.index,1   )[0])	        		
 	        		console.log('deleted')
 	        		return 'a'
 	        		//not returning anything here actually retuns true

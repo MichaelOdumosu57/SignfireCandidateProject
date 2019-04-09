@@ -39,7 +39,7 @@ export class TweetComponentComponent implements OnInit {
         this.image = trashString;
       });   
   }
-  trashToggle(question:Tweet[],command:Observable<string>): Tweet[][]{
+  trashToggle(question:Tweet[],command:Observable<string>): Tweet[]{
     console.log(this.gun)
     if(   command !== undefined   ){
           command.subscribe((value)=>{
@@ -51,11 +51,11 @@ export class TweetComponentComponent implements OnInit {
               this.tweetList = this.trS.chosenTweetList =  this.trS.trashedTweetList
               console.log(this.trS.trashedTweetList)
             }   
+            console.log(this.tweetList)
             return [this.tweetList];        
           })
     }
-
-   
+    
     return [this.tweetList]; 
   };
   starred(bool:boolean): string {        

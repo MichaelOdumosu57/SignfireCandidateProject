@@ -14,10 +14,7 @@ export class TrashMessagesComponent implements OnInit {
 
   display:string = 'Show Trashed Messages';
   dbChange(flag:number):void{  	
-  	if(   flag !== undefined){
-  		this.trS.generateTweetList();
-  	}
-  	else{
+
 	  	if(   this.display === 'Show Trashed Messages'   ){
 	  		this.display = 'Show Untrashed Messages';
 	  		this.trS.toggleTweetList('trash')	  		
@@ -27,10 +24,9 @@ export class TrashMessagesComponent implements OnInit {
 	  		this.trS.toggleTweetList('active')
 	  	}
 
-  	}
+  	
   }
   ngOnInit() {
-  	// this.dbChange(1);
   }
 
 }
