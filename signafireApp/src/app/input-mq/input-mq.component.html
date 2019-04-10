@@ -1,2 +1,2 @@
-<input  class="form-control" >
-<button type="button" class="btn btn-secondary" >Submit</button>
+<input  #searchBox class="form-control" (input) = 'register(searchBox.value)' >
+<button type="button" class="btn btn-secondary" (click) = 'highlight()'>Submit</button>

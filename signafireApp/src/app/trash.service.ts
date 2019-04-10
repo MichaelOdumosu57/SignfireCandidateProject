@@ -63,7 +63,6 @@ export class TrashService {
     // console.log(command)
     if(   command === 'active'   ){
         this.chosenTweetList = this.activeTweetList;  
-
     } 
     else if(   command === 'trash'   ){
         this.chosenTweetList = this.trashedTweetList;        

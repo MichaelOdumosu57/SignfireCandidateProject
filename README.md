@@ -31,6 +31,8 @@
 ### Goal 6
 	place input box  with a submit button
 	user can type any text and click submit
+	highlight input query from messages
+
 
 
 ##Achieved
@@ -101,3 +103,6 @@ for app
 	button responsible for the UI  to toggle between trashed and active messages	
 # InputMQ component
 	responsible for taking input from the user	
+
+# InputMQS service
+	responsbile with communicating with other services and components that the messages need to be highlighted

@@ -10,8 +10,7 @@ import {
   debounceTime, 
   distinctUntilChanged, switchMap } 
 from 'rxjs/operators';
-
-
+import { InputMQSService } from '../input-mqs.service';
 
 
 @Component({
@@ -28,36 +27,50 @@ export class TweetComponentComponent implements OnInit {
     private tS: ToggleService,
     private trS: TrashService,    
     private DomSanitizer: DomSanitizer,
+    private iMQS:InputMQSService,
   ) { }
+  test:Array<string> = ['a']; 
   tweetList: Tweet[]; // USE $ next time    
   starMessage: string = '';
   image : string = '';
-  gun:Array<string> = ['a'] 
   getImage(): void {        
     this.trS.getTrashImage()
       .subscribe(trashString => {        
         this.image = trashString;
       });   
   }
-  trashToggle(question:Tweet[],command:Observable<string>): Tweet[][]{
-    console.log(this.gun)
-    if(   command !== undefined   ){
-          command.subscribe((value)=>{
-            console.log(value)
-            if(value === 'active'){
-              this.tweetList = this.trS.chosenTweetList =  this.trS.activeTweetList
-            }
-            else if(value === 'trash'){
-              this.tweetList = this.trS.chosenTweetList =  this.trS.trashedTweetList
-              console.log(this.trS.trashedTweetList)
-            }   
-            console.log(this.tweetList)
-            return [this.tweetList];        
-          })
-    }
-    
-    return [this.tweetList]; 
+  trashToggle(question:Tweet[],command:Observable<string>): Tweet[][]{    
+      if(   command !== undefined   ){
+            command.subscribe((value)=>{
+              console.log(value)
+              if(value === 'active'){
+                this.tweetList = this.trS.chosenTweetList =  this.trS.activeTweetList
+              }
+              else if(value === 'trash'){
+                this.tweetList = this.trS.chosenTweetList =  this.trS.trashedTweetList
+                console.log(this.trS.trashedTweetList)
+              }   
+              console.log(this.tweetList)
+              return [this.tweetList];        
+            })
+      }    
+      return [this.tweetList]; 
   };
+  highlight(query:string,question:Tweet[],instruct:Observable<string>): Tweet[][]{
+      console.log(query)
+      if(   instruct !== undefined   ){
+          instruct.subscribe((value)=>{            
+              if(   value === 'active'   ){              
+                console.log('trying to hightlight messages')
+              }
+              else if(   value === 'trash'   ){              
+              }               
+              return [this.tweetList];        
+          })
+      }
+      
+      return [this.tweetList]; 
+  };  
   starred(bool:boolean): string {        
     if(   bool   ){
       this.starMessage = 'Starred!';
@@ -92,7 +105,7 @@ export class TweetComponentComponent implements OnInit {
   ngOnInit() {
   	this.populate();
     this.trS.trashWatcher.pipe(
-      // wait 300ms after each keystroke before considering the term
+      // wait 300ms after each toggle messageList click
       debounceTime(100),
 
       // ignore new term if same as previous term
@@ -103,6 +116,11 @@ export class TweetComponentComponent implements OnInit {
     ).subscribe();
     // works but I get an error idk why
     // it only wants a Promise Observable array or iterable
+    this.iMQS.stringWatcher.pipe(
+
+      // switch to new search observable each time the term changes
+      switchMap((item) => this.highlight(item,this.tweetList,this.trS.command$)),
+    ).subscribe();    
   }
 
 }
