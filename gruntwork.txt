@@ -31,3 +31,7 @@ sudo sysctl -p --system
 
 to access the DOM from angular
 https://stackoverflow.com/questions/50169543/how-can-i-access-dom-elements-in-angular
+
+
+to zip your computer
+ zip -rv My_Computer.zip My_Computer -x "*/\node_modules/*" 

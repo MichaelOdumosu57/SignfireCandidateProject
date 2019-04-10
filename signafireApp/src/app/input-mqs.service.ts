@@ -25,16 +25,37 @@ export class InputMQSService {
 	textWidth:any;	
 	hightlighter:any;	
 	ctx:any;
+	autoHighlightUrl:string ='/backend/autoHighlight';
 	constructor(
 		private trS: TrashService,
+		private http: HttpClient,
+		private sgS: SigheaderService
 	) { }
 	repopulate(): void {    
 		this.stringWatcher.next(this.queryString);
 	};
-	textDimension(stringSelector:any,term:string):void{	  	  
-	  this.ctx = this.canvasElement.getContext("2d");
-	  this.ctx.font =  stringSelector.style.fontSize + " " + stringSelector.style.fontFamily ;  
-	  this.textWidth = this.ctx.measureText(stringSelector.innerText).width;
+	textDimension(stringSelector:any,term:string):Observable<any>{
+		console.log(stringSelector)	 
+		return this.http.put<any>(this.autoHighlightUrl, 
+			{
+				fullString:stringSelector.innerText,
+				term
+			}
+			,httpOptions)
+		.pipe(
+			tap(() => {
+			  this.ctx = this.canvasElement.getContext("2d");
+			  this.ctx.font =  stringSelector.style.fontSize + " " + stringSelector.style.fontFamily ;  
+			  this.textWidth = this.ctx.measureText(stringSelector.innerText).width;       	
+			}),
+			catchError(this.sgS.handleError('getMessages'))
+		//unlike promises this goes through both in ts you get an error becuase the 
+		//API gives a string not that <T> type
+		); 	  
+
+	  // 	catchError(this.sgS.handleError('getMessages'))
+
+
 	  // console.log(stringSelector.innerText)
 	  // different from innerHTML,because it includes any html tags including the marking div		    
 	};

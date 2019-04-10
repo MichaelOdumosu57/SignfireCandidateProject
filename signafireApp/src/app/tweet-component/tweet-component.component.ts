@@ -75,8 +75,8 @@ export class TweetComponentComponent implements OnInit {
                       if(   index === 'length'   ){
                           break;
                       }
-                      this.iMQS.textDimension(this.iMQS.messageElements[index],query)
-                      this.iMQS.marker(this.iMQS.hightlighter[index],this.iMQS.messageElements[index])          
+                      this.iMQS.textDimension(this.iMQS.messageElements[index],query).subscribe()
+                      // this.iMQS.marker(this.iMQS.hightlighter[index],this.iMQS.messageElements[index])          
                   }              
               }
               else if(   value === 'trash'   ){              
