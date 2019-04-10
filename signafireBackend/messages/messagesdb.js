@@ -1,6 +1,6 @@
 var messages = [
 	{
-		message:'Semper Semper Semper Semper Semper Semper',
+		message:'adding Semper Tappen Semper Semper Semper',
 		name:'Jake Tappen',
 		date:'Feb 24, 2017',
 		starred:false
@@ -13,7 +13,7 @@ var messages = [
 		starred:false
 	},
 	{
-		message:'Semper Semper Semper Semper Semper Semper',
+		message:'Semper Tappen Semper dipper Semper Semper',
 		name:'Tom Kaligher',
 		date:'May 24, 2016',
 		starred:false

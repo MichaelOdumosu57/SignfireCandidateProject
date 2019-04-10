@@ -43,10 +43,11 @@ export class InputMQSService {
 			}
 			,httpOptions)
 		.pipe(
-			tap(() => {
+			tap((shipment) => {
+				console.log(shipment)
 			  this.ctx = this.canvasElement.getContext("2d");
-			  this.ctx.font =  stringSelector.style.fontSize + " " + stringSelector.style.fontFamily ;  
-			  this.textWidth = this.ctx.measureText(stringSelector.innerText).width;       	
+			  this.ctx.font =  stringSelector.style.fontSize + " " + stringSelector.style.fontFamily;
+			  this.textWidth = this.ctx.measureText(shipment.term || stringSelector.innerText).width;       	
 			}),
 			catchError(this.sgS.handleError('getMessages'))
 		//unlike promises this goes through both in ts you get an error becuase the 

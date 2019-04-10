@@ -1,5 +1,8 @@
-module.exports.match = function (   req, res, next   ) {
+var package = {term:''}
 
+
+module.exports.match = function (   req, res, next   ) {
+	
 	ultraObject.reqBody({
 		stream:req,
 		fn:function(dev_obj){			
@@ -26,31 +29,51 @@ module.exports.match = function (   req, res, next   ) {
 					ultraObject.scope[rB_fnMisc_0_i]
 				].fullString.length,
                 type:'string'                
-            })			
+            })
             console.log(ultraObject.misc[
             	ultraObject.misc.abelast[
             		ultraObject.misc.abelast.length-1
         		]
-            ])
-            // ultraObject.misc.minus({
-            // 	index:ultraObject.misc.length-1
-            // })
-            // ultraObject.misc.abelast.minus({
-            // 	index:ultraObject.misc.abelast.length-1
-            // })
+            ])			
+            if(ultraObject.misc[
+            	ultraObject.misc.abelast[
+            		ultraObject.misc.abelast.length-1
+        		]
+            ].satisfy){
+
+
+            	package.term = ultraObject.misc[
+					ultraObject.scope[rB_fnMisc_0_i]
+				].term
+				console.log(package)
+            }
+            ultraObject.misc.minus({
+            	index:ultraObject.misc.length-1
+            })
+            ultraObject.misc.abelast.minus({
+            	index:ultraObject.misc.abelast.length-1
+            })
 			// ultraObject.misc.abelast.add({
 			// 	value:ultraObject.scope[rB_fnMisc_0_i]
 			// }) 
 			ultraObject.scope.minus(   {index:rB_fnMisc_0_i}   ) 	
 		},
-		keep:'true'
+		keep:'false',
+		finish:function(dev_obj){
+			res.json(package)
+		}
 	})
+	
+	
 
-	res.json('success')
+
 }
+
 
 module.exports.error =  function (  err, req, res, next   ) {
 
-	res.json('error')
+	console.error(err)
+	throw('e')
+	res.json(err)
 
 }
