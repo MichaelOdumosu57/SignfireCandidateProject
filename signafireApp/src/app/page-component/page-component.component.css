@@ -3,6 +3,7 @@ div {
 	height:98%;
 	width:98%;	
 	padding-top: 10%;
-	background-color: white 
+	background-color: white;
+	z-index:1;
 
  }

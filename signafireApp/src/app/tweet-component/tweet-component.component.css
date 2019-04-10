@@ -1,5 +1,7 @@
+
+
 .well {
-    width:90%;
+    width:95%;
     height:20%;
     position:absolute;
     z-index: 5;
@@ -31,7 +33,9 @@
 
 .spacing{
     padding: 8%;
-    position: static;
+    position: absolute;
+    height:80%;
+    width:80%;
 }
 
 .image{

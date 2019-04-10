@@ -29,11 +29,11 @@ export class InputMQSService {
 	) { }
 	repopulate(): void {    
 		this.stringWatcher.next(this.queryString);
-	}
-	textDimension(stringSelector:any):number{	  	  
+	};
+	textDimension(stringSelector:any):void{	  	  
 	  this.ctx = this.canvasElement.getContext("2d");
 	  this.ctx.font =  stringSelector.style.fontSize + " " + stringSelector.style.fontFamily ;  
 	  this.textWidth = this.ctx.measureText(stringSelector.innerHTML).width;
-	  return this.textWidth
-	}  	
+	  console.log(this.textWidth)	  
+	};  	
 }
