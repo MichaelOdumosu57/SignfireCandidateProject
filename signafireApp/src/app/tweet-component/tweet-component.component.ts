@@ -32,7 +32,6 @@ export class TweetComponentComponent implements OnInit {
   tweetList: Tweet[]; // USE $ next time
   starMessage: string = '';
   image : string = '';
-  markerStart:string = '0px';
   increment(index:number):string{
     return ((20*index+1)+15).toString() + '%';
   }
@@ -73,7 +72,7 @@ export class TweetComponentComponent implements OnInit {
                       if(   index === 'length'   ){
                           break;
                       }
-                      this.iMQS.textDimension(this.iMQS.messageElements[index],query).subscribe((shipment) =>{
+                      this.iMQS.textDimension(this.iMQS.messageElements[index],query,parseInt(index)).subscribe((shipment) =>{
                           this.iMQS.marker(this.iMQS.hightlighter[index],this.iMQS.messageElements[index])
                       })
                   }

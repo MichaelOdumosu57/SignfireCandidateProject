@@ -56,7 +56,7 @@ module.exports.match = function (   req, res, next   ) {
                 	ultraObject.misc.abelast[
                 		ultraObject.misc.abelast.length-1
             		]
-                ][2][0] // represent the gap needed to find that word
+                ][2][0] // represent the gap needed to find that word at the index 2 is gap anyway
 				console.log(packageShip)
             }
             ultraObject.misc.minus({
