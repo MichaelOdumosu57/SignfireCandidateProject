@@ -1,6 +1,6 @@
 var messages = [
 	{
-		message:'Semper Semper Semper Semper Semper Semper',
+		message:'Semper ',
 		name:'Jake Tappen',
 		date:'Feb 24, 2017',
 		starred:false

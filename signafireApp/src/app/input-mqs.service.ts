@@ -20,10 +20,20 @@ const httpOptions = {
 export class InputMQSService {
 	stringWatcher = new Subject<string>();
 	queryString:string = '';
+	messageElements:any;
+	canvasElement:any;
+	textWidth:any;
+	ctx:any;
 	constructor(
 		private trS: TrashService,
 	) { }
 	repopulate(): void {    
 		this.stringWatcher.next(this.queryString);
 	}
+	textDimension(stringSelector:any):number{	  	  
+	  this.ctx = this.canvasElement.getContext("2d");
+	  this.ctx.font =  stringSelector.style.fontSize + " " + stringSelector.style.fontFamily ;  
+	  this.textWidth = this.ctx.measureText(stringSelector.innerHTML).width;
+	  return this.textWidth
+	}  	
 }

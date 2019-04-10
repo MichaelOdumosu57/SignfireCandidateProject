@@ -27,3 +27,7 @@ if something is to respond to an action in another component, the changing prope
 to incrase the file watch capabilities of Angular
 sudo sysctl fs.inotify.max_user_watches=524288
 sudo sysctl -p --system
+
+
+to access the DOM from angular
+https://stackoverflow.com/questions/50169543/how-can-i-access-dom-elements-in-angular

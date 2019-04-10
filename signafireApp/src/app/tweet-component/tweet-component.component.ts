@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Tweet } from '../tweets';
 import { StarquantityService } from '../starquantity.service';
 import { ToggleService } from '../toggle.service';
@@ -28,6 +28,7 @@ export class TweetComponentComponent implements OnInit {
     private trS: TrashService,    
     private DomSanitizer: DomSanitizer,
     private iMQS:InputMQSService,
+    private ElementRef:ElementRef
   ) { }
   test:Array<string> = ['a']; 
   tweetList: Tweet[]; // USE $ next time    
@@ -56,12 +57,15 @@ export class TweetComponentComponent implements OnInit {
       }    
       return [this.tweetList]; 
   };
-  highlight(query:string,question:Tweet[],instruct:Observable<string>): Tweet[][]{
-      console.log(query)
+  //to hightlight the message according to the query string
+  highlight(query:string,question:Tweet[],instruct:Observable<string>): Tweet[][]{      
       if(   instruct !== undefined   ){
           instruct.subscribe((value)=>{            
               if(   value === 'active'   ){              
                 console.log('trying to hightlight messages')
+                this.iMQS.messageElements = this.ElementRef.nativeElement.querySelector(`.message`);
+                this.iMQS.canvasElement = this.ElementRef.nativeElement.querySelector(`canvas`);                
+                this.iMQS.textDimension(this.iMQS.messageElements)               
               }
               else if(   value === 'trash'   ){              
               }               
@@ -71,6 +75,7 @@ export class TweetComponentComponent implements OnInit {
       
       return [this.tweetList]; 
   };  
+  //
   starred(bool:boolean): string {        
     if(   bool   ){
       this.starMessage = 'Starred!';
