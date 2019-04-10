@@ -63,10 +63,17 @@
 }
 
 .message{
-   font-size:.8em;
+   
    left:13%;
    top: 7%;
    position: absolute;
+}
+
+.message-highlight{
+  height: .8em;
+  left:13%;
+  top: 7%;
+  position: absolute;  
 }
 
 .star-false{

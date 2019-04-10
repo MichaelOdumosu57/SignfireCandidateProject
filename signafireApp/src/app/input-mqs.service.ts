@@ -22,7 +22,8 @@ export class InputMQSService {
 	queryString:string = '';
 	messageElements:any;
 	canvasElement:any;
-	textWidth:any;
+	textWidth:any;	
+	hightlighter:any;
 	ctx:any;
 	constructor(
 		private trS: TrashService,
@@ -33,9 +34,15 @@ export class InputMQSService {
 	textDimension(stringSelector:any):void{	  	  
 	  this.ctx = this.canvasElement.getContext("2d");
 	  this.ctx.font =  stringSelector.style.fontSize + " " + stringSelector.style.fontFamily ;  
-	  this.textWidth = this.ctx.measureText(stringSelector.innerHTML).width;
-	  stringSelector.style.backgroundSize = '200px 100px';
-	  stringSelector.style.backgroundColor = 'green'
-	  console.log(this.textWidth)	  
-	};  	
+	  this.textWidth = this.ctx.measureText(stringSelector.innerHTML).width;		    
+	};
+	marker(element:any,stringSelector:any):void{		
+		element.style.height = stringSelector.style.fontSize;
+		this.textWidth = this.textWidth.toString()+'px'
+		element.style.width = this.textWidth;
+		element.style.backgroundColor = 'red'
+		console.log(stringSelector)
+
+	}	 
+
 }

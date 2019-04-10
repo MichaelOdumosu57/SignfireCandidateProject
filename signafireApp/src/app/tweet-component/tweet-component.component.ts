@@ -67,11 +67,10 @@ export class TweetComponentComponent implements OnInit {
               if(   value === 'active'   ){              
                 console.log('trying to hightlight messages')
                 this.iMQS.messageElements = this.ElementRef.nativeElement.querySelector(`.message`);
-                this.iMQS.canvasElement = this.ElementRef.nativeElement.querySelector(`canvas`);
-                this.iMQS.messageElements.innerHTML = 'sas'
+                this.iMQS.hightlighter = this.ElementRef.nativeElement.querySelector(`.message-highlight`);
+                this.iMQS.canvasElement = this.ElementRef.nativeElement.querySelector(`canvas`);                
                 this.iMQS.textDimension(this.iMQS.messageElements)
-                  
-                //needs to grab width from app component to be done properly             
+                this.iMQS.marker(this.iMQS.hightlighter,this.iMQS.messageElements)          
               }
               else if(   value === 'trash'   ){              
               }               

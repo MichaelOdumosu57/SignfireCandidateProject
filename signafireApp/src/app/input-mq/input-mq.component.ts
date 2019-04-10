@@ -20,7 +20,7 @@ export class InputMQComponent implements OnInit {
   }
 
   
-  ngOnInit() {
+  ngOnInit() {    
   }
 
 }
