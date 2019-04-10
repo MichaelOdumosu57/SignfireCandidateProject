@@ -1,11 +1,11 @@
-var package = {term:''}
+
 
 
 module.exports.match = function (   req, res, next   ) {
-	
+	var packageShip = {}
 	ultraObject.reqBody({
 		stream:req,
-		fn:function(dev_obj){			
+		fn:function(dev_obj){
 			var rB_fnMisc_0_i = ultraObject.scope.add({
 				value: ultraObject.misc.add({
 					value:JSON.parse(   dev_obj.stream.body   )
@@ -14,6 +14,7 @@ module.exports.match = function (   req, res, next   ) {
 			ultraObject.misc.abelast.add({
 				value:rB_fnMisc_0_i
 			})
+			//check this
 			var reqBody_fn_dev_obj = ultraObject.args.add(   {value:ultraObject.iterify(   {iterify:dev_obj}   )   }   )
             ultraObject.partialMatch({
                 compTo:ultraObject.misc[
@@ -22,19 +23,25 @@ module.exports.match = function (   req, res, next   ) {
                 compAgn:ultraObject.misc[
 					ultraObject.scope[rB_fnMisc_0_i]
 				].fullString,
-                range:1,
-                spaces:0,
-                gap:0,
+                range:ultraObject.misc[
+					ultraObject.scope[rB_fnMisc_0_i]
+				].term.length,
+                spaces:1,
+                gap:ultraObject.misc[
+					ultraObject.scope[rB_fnMisc_0_i]
+				].fullString.length- ultraObject.misc[
+					ultraObject.scope[rB_fnMisc_0_i]
+				].term.length,
                 trailer:ultraObject.misc[
 					ultraObject.scope[rB_fnMisc_0_i]
 				].fullString.length,
-                type:'string'                
+                type:'string'
             })
             console.log(ultraObject.misc[
             	ultraObject.misc.abelast[
             		ultraObject.misc.abelast.length-1
         		]
-            ])			
+            ])
             if(ultraObject.misc[
             	ultraObject.misc.abelast[
             		ultraObject.misc.abelast.length-1
@@ -42,10 +49,15 @@ module.exports.match = function (   req, res, next   ) {
             ].satisfy){
 
 
-            	package.term = ultraObject.misc[
+            	packageShip.term = ultraObject.misc[
 					ultraObject.scope[rB_fnMisc_0_i]
 				].term
-				console.log(package)
+				packageShip.indent = ultraObject.misc[
+                	ultraObject.misc.abelast[
+                		ultraObject.misc.abelast.length-1
+            		]
+                ][2][0] // represent the gap needed to find that word
+				console.log(packageShip)
             }
             ultraObject.misc.minus({
             	index:ultraObject.misc.length-1
@@ -53,20 +65,15 @@ module.exports.match = function (   req, res, next   ) {
             ultraObject.misc.abelast.minus({
             	index:ultraObject.misc.abelast.length-1
             })
-			// ultraObject.misc.abelast.add({
-			// 	value:ultraObject.scope[rB_fnMisc_0_i]
-			// }) 
-			ultraObject.scope.minus(   {index:rB_fnMisc_0_i}   ) 	
+
+			ultraObject.scope.minus(   {index:rB_fnMisc_0_i}   )
 		},
 		keep:'false',
 		finish:function(dev_obj){
-			res.json(package)
+			res.json(packageShip)
 		}
 	})
 	
-	
-
-
 }
 
 
