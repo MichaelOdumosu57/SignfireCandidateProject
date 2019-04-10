@@ -71,8 +71,8 @@
 
 .message-highlight{
   height: .8em;
-  left:13%;
-  top: 7%;
+  /*left:13%;*/
+  top:10%;
   position: absolute;  
 }
 

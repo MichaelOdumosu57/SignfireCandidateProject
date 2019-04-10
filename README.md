@@ -58,6 +58,11 @@
 ### Achieved 5
 	done it properly toggles between garbed and non garbage although garbage loses some of its properties
 	found out why garbage lost its properties, db.splice put the tweet in the array so the problem was from the backend
+
+### Achieved 6 
+	set up shop
+	can highlight the whole text
+	must send to backend to determine final highlighting of the string	
 	
 
 	

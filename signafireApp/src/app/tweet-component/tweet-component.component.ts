@@ -34,6 +34,7 @@ export class TweetComponentComponent implements OnInit {
   tweetList: Tweet[]; // USE $ next time    
   starMessage: string = '';
   image : string = '';
+  markerStart:string = '0px';
   increment(index:number):string{
     return ((20*index+1)+15).toString() + '%';
   }
@@ -65,12 +66,18 @@ export class TweetComponentComponent implements OnInit {
       if(   instruct !== undefined   ){
           instruct.subscribe((value)=>{            
               if(   value === 'active'   ){              
-                console.log('trying to hightlight messages')
-                this.iMQS.messageElements = this.ElementRef.nativeElement.querySelector(`.message`);
-                this.iMQS.hightlighter = this.ElementRef.nativeElement.querySelector(`.message-highlight`);
-                this.iMQS.canvasElement = this.ElementRef.nativeElement.querySelector(`canvas`);                
-                this.iMQS.textDimension(this.iMQS.messageElements)
-                this.iMQS.marker(this.iMQS.hightlighter,this.iMQS.messageElements)          
+                  console.log('trying to hightlight messages')
+                  this.iMQS.messageElements = this.ElementRef.nativeElement.querySelectorAll(`.message`);
+                  this.iMQS.hightlighter = this.ElementRef.nativeElement.querySelectorAll(`.message-highlight`);
+                  this.iMQS.canvasElement = this.ElementRef.nativeElement.querySelector(`canvas`);  
+
+                  for(let index in this.iMQS.messageElements){                      
+                      if(   index === 'length'   ){
+                          break;
+                      }
+                      this.iMQS.textDimension(this.iMQS.messageElements[index],query)
+                      this.iMQS.marker(this.iMQS.hightlighter[index],this.iMQS.messageElements[index])          
+                  }              
               }
               else if(   value === 'trash'   ){              
               }               
