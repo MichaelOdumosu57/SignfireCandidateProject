@@ -35,7 +35,6 @@ export class TweetComponentComponent implements OnInit {
   starMessage: string = '';
   image : string = '';
   increment(index:number):string{
-
     return ((20*index+1)+15).toString() + '%';
   }
   getImage(): void {        
@@ -70,7 +69,8 @@ export class TweetComponentComponent implements OnInit {
                 this.iMQS.messageElements = this.ElementRef.nativeElement.querySelector(`.message`);
                 this.iMQS.canvasElement = this.ElementRef.nativeElement.querySelector(`canvas`);
                 this.iMQS.messageElements.innerHTML = 'sas'
-                this.iMQS.textDimension(this.iMQS.messageElements)  
+                this.iMQS.textDimension(this.iMQS.messageElements)
+                  
                 //needs to grab width from app component to be done properly             
               }
               else if(   value === 'trash'   ){              

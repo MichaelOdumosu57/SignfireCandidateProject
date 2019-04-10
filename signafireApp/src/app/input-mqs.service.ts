@@ -34,6 +34,8 @@ export class InputMQSService {
 	  this.ctx = this.canvasElement.getContext("2d");
 	  this.ctx.font =  stringSelector.style.fontSize + " " + stringSelector.style.fontFamily ;  
 	  this.textWidth = this.ctx.measureText(stringSelector.innerHTML).width;
+	  stringSelector.style.backgroundSize = '200px 100px';
+	  stringSelector.style.backgroundColor = 'green'
 	  console.log(this.textWidth)	  
 	};  	
 }
