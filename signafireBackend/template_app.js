@@ -8,7 +8,6 @@ const compression = require('compression')
 const cors = require('cors')
 //middleware
 global.ultraObject = require('./middleware/ultraObject.js')
-global.reqBody =  require('./middleware/requestBody.js')
 const backend = express.Router()
 const logo = require('./middleware/logo.js')
 const messages = require('./middleware/messages.js')
