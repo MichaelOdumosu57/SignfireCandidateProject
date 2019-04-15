@@ -2,7 +2,7 @@
 
 
 module.exports.match = function (   req, res, next   ) {
-	var packageShip = {}
+	var packageShip = {indent:0}
 	ultraObject.reqBody({
 		stream:req,
 		fn:function(dev_obj){
@@ -32,16 +32,17 @@ module.exports.match = function (   req, res, next   ) {
 				].fullString.length- ultraObject.misc[
 					ultraObject.scope[rB_fnMisc_0_i]
 				].term.length,
-                trailer:ultraObject.misc[
-					ultraObject.scope[rB_fnMisc_0_i]
-				].fullString.length,
-                type:'string'
+                trailer:0,
+                type:'string',
+                reset:'true'
             })
-            console.log(ultraObject.misc[
-            	ultraObject.misc.abelast[
-            		ultraObject.misc.abelast.length-1
-        		]
-            ])
+        //     console.log(ultraObject.misc[
+        //     	ultraObject.misc.abelast[
+        //     		ultraObject.misc.abelast.length-1
+        // 		]
+        //     ])
+            
+            
             if(ultraObject.misc[
             	ultraObject.misc.abelast[
             		ultraObject.misc.abelast.length-1
@@ -52,13 +53,37 @@ module.exports.match = function (   req, res, next   ) {
             	packageShip.term = ultraObject.misc[
 					ultraObject.scope[rB_fnMisc_0_i]
 				].term
-				packageShip.indent = ultraObject.misc[
-                	ultraObject.misc.abelast[
-                		ultraObject.misc.abelast.length-1
-            		]
-                ][2][0] // represent the gap needed to find that word at the index 2 is gap anyway
+				
+								
+				if(   ultraObject.misc[
+                    	ultraObject.misc.abelast[
+                    		ultraObject.misc.abelast.length-1
+                		]
+                      ][2][0] === undefined  ){
+                    
+                    
+                    packageShip.indent = 0
+                }
+                
+                
+				else if(    ultraObject.misc[
+                            	ultraObject.misc.abelast[
+                            		ultraObject.misc.abelast.length-1
+                        		]
+                            ][2][0] !== undefined  ){
+                    
+                    
+                    packageShip.indent = ultraObject.misc[
+                    	ultraObject.misc.abelast[
+                    		ultraObject.misc.abelast.length-1
+                		]
+                    ][2][0]
+                }
+                // represent the gap needed to find that word at the index 2 is gap anyway
 				console.log(packageShip)
             }
+            
+            
             ultraObject.misc.minus({
             	index:ultraObject.misc.length-1
             })

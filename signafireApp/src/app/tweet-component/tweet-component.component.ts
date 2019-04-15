@@ -67,7 +67,6 @@ export class TweetComponentComponent implements OnInit {
                   this.iMQS.messageElements = this.ElementRef.nativeElement.querySelectorAll(`.message`);
                   this.iMQS.hightlighter = this.ElementRef.nativeElement.querySelectorAll(`.message-highlight`);
                   this.iMQS.canvasElement = this.ElementRef.nativeElement.querySelector(`canvas`);
-
                   for(let index in this.iMQS.messageElements){
                       if(   index === 'length'   ){
                           break;

@@ -28,7 +28,6 @@ export class InputMQSService {
 	autoHighlightUrl:string ='/backend/autoHighlight';
 	markerStart:Array<string>  = [];
 	constructor(
-// 		private trS: TrashService,
 		private http: HttpClient,
 		private sgS: SigheaderService
 	) { }
@@ -48,17 +47,14 @@ export class InputMQSService {
 			    console.log(shipment)
 			    this.ctx = this.canvasElement.getContext("2d");
 			    this.ctx.font =  stringSelector.style.fontSize + " " + stringSelector.style.fontFamily;
-			    this.textWidth = this.ctx.measureText(shipment.term || stringSelector.innerText).width;
-			    console.log(stringSelector.innerText)
+			    this.textWidth = this.ctx.measureText(shipment.term || '').width;
 			    this.markerStart[index] = this.ctx.measureText(stringSelector.innerText.substring(0,shipment.indent)).width.toString() + 'px';
-			    
 			}),
 			catchError(this.sgS.handleError('getMessages'))
 		//unlike promises this goes through both in ts you get an error becuase the
 		//API gives a string not that <T> type
 		);
 
-	  // 	catchError(this.sgS.handleError('getMessages'))
 
 
 	  // console.log(stringSelector.innerText)
