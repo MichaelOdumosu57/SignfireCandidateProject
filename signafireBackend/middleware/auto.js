@@ -34,7 +34,7 @@ module.exports.match = function (   req, res, next   ) {
 				].term.length,
                 trailer:0,
                 type:'string',
-                reset:'true'
+                full:'true'
             })
         //     console.log(ultraObject.misc[
         //     	ultraObject.misc.abelast[
